@@ -44,6 +44,16 @@ const App = () => {
           favoriteComponent={AddFavorites}
         />
       </div>
+      <div className='row d-flex align-items-center mt-4 mb-4'>
+        <MovieListHeading heading='Favorites' />
+      </div>
+      <div className='row'>
+        <MovieList
+          movies={favorites}
+          handleFavoritesClick={addFavoriteMovie}
+          favoriteComponent={AddFavorites}
+        />
+      </div>
     </div>
   );
 };
