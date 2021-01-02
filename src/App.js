@@ -5,6 +5,7 @@ import MovieList from './components/MovieList';
 import MovieListHeading from './components/MovieListHeading';
 import SearchBox from './components/SearchBox';
 import AddFavorites from './components/AddFavorites';
+import RemoveFavorites from './components/RemoveFavorites';
 
 const App = () => {
   const [movies, setMovies] = useState([]);
@@ -31,6 +32,14 @@ const App = () => {
     setFavorites(newFavoriteList);
   };
 
+  const removeFavoriteMovie = (movie) => {
+    const newFavoriteList = favorites.filter(
+      (favorite) => favorite.imdbID !== movie.imdbID
+    );
+
+    setFavorites(newFavoriteList);
+  };
+
   return (
     <div className='container-fluid movie-app'>
       <div className='row d-flex align-items-center mt-4 mb-4'>
@@ -50,8 +59,8 @@ const App = () => {
       <div className='row'>
         <MovieList
           movies={favorites}
-          handleFavoritesClick={addFavoriteMovie}
-          favoriteComponent={AddFavorites}
+          handleFavoritesClick={removeFavoriteMovie}
+          favoriteComponent={RemoveFavorites}
         />
       </div>
     </div>
